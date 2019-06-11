@@ -3,7 +3,7 @@ import os
 import csv
 from shutil import copy2
 from PIL import Image
-from trainer import create_classifier_model
+from train.trainer import create_classifier_model
 
 
 ROOT_FOLDER = '../seal-images/'
