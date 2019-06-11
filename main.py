@@ -37,7 +37,7 @@ def process_images_for_classifier():
                     for column in row:
                         split_file = column.split('.')
                         if len(split_file) > 2:
-                            print split_file[2]
+                            print split_file[1]
 
 
 if __name__ == '__main__':
