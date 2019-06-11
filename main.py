@@ -25,7 +25,7 @@ ITERATION = '208ff343-ec75-4138-813d-84376fedeea2'
 
 
 def process_images_for_classifier():
-    for pathName in glob.glob(ROOT_FOLDER + '*' + ITERATION + '.csv'):
+    for pathName in glob.glob(ROOT_FOLDER + 'LF1-208ff343-ec75-4138-813d-84376fedeea2' + '.csv'):
         file = open(pathName, "rU")
         reader = csv.reader(file, delimiter=',')
         for row in reader:
