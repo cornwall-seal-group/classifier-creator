@@ -32,7 +32,7 @@ def process_images_for_classifier():
         regex = '.*-' + ITERATION + '.csv'
         for file in files:
             if re.search(regex, file):
-                seal_name = subdir.split('/')[1]
+                seal_name = subdir.split('/')[2]
                 print seal_name
                 pathName = os.path.join(subdir, file)
                 file = open(pathName, "rU")
