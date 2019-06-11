@@ -1,4 +1,4 @@
-import glob
+import re
 import os
 import csv
 
@@ -26,12 +26,18 @@ ITERATION = '208ff343-ec75-4138-813d-84376fedeea2'
 
 def process_images_for_classifier():
 
-    for pathName in glob.glob(ROOT_FOLDER + '*/*.csv'):
-        file = open(pathName, "rU")
-        reader = csv.reader(file, delimiter=',')
-        for row in reader:
-            for column in row:
-                print(column)
+    for subdir, dirs, files in os.walk(ROOT_FOLDER):
+        regex = '.*-' + ITERATION + '.csv'
+        if re.search(regex, file):
+            for file in files:
+                print os.path.join(subdir, file)
+
+    # for pathName in glob.glob(ROOT_FOLDER + '*/*.csv'):
+    #     file = open(pathName, "rU")
+    #     reader = csv.reader(file, delimiter=',')
+    #     for row in reader:
+    #         for column in row:
+    #             print(column)
 
 
 if __name__ == '__main__':
