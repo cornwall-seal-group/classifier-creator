@@ -42,12 +42,7 @@ def create_classifier_model():
 
             # batch the requests
             if len(image_list) == 60:
-                upload_result = trainer.create_images_from_files(
+                trainer.create_images_from_files(
                     project.id, images=image_list)
-                if not upload_result.is_batch_successful:
-                    print("Image batch upload failed.")
-                    for image in upload_result.images:
-                        print("Image status: ", image.status)
-                    exit(-1)
 
                 image_list = []
