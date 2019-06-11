@@ -40,10 +40,14 @@ def create_classifier_model():
                 image_list.append(ImageFileCreateEntry(
                     name=file, contents=image_contents.read(), tag_ids=[tags[seal_folder_name].id]))
 
-    upload_result = trainer.create_images_from_files(
-        project.id, images=image_list)
-    if not upload_result.is_batch_successful:
-        print("Image batch upload failed.")
-        for image in upload_result.images:
-            print("Image status: ", image.status)
-        exit(-1)
+            # batch the requests
+            if len(image_list) == = 60:
+                upload_result = trainer.create_images_from_files(
+                    project.id, images=image_list)
+                if not upload_result.is_batch_successful:
+                    print("Image batch upload failed.")
+                    for image in upload_result.images:
+                        print("Image status: ", image.status)
+                    exit(-1)
+
+                image_list = []
