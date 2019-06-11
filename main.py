@@ -36,7 +36,7 @@ def process_images_for_classifier():
                 for row in reader:
                     for column in row:
                         split_file = column.split('.')
-                        if split_file.length > 1:
+                        if len(split_file) > 1:
                             print split_file[2]
 
 
