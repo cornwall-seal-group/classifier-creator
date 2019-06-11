@@ -1,6 +1,7 @@
 import re
 import os
 import csv
+from shutil import copy2
 
 ROOT_FOLDER = '../seal-images/'
 CLASSIFIER_FOLDER = '../for-classifier/'
@@ -33,7 +34,7 @@ def process_images_for_classifier():
         for file in files:
             if re.search(regex, file):
                 seal_name = subdir.split('/')[2]
-                print seal_name
+
                 pathName = os.path.join(subdir, file)
                 file = open(pathName, "rU")
                 reader = csv.reader(file, delimiter=',')
@@ -45,7 +46,9 @@ def process_images_for_classifier():
                             if percentage > 0.12:
                                 image_path = os.path.join(
                                     subdir, ITERATION, column)
-                                #print image_path
+                                print image_path
+                                copy2(image_path, CLASSIFIER_FOLDER +
+                                      seal_name + '/')
 
 
 if __name__ == '__main__':
