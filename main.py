@@ -35,7 +35,9 @@ def process_images_for_classifier():
                 reader = csv.reader(file, delimiter=',')
                 for row in reader:
                     for column in row:
-                        print(column)
+                        split_file = column.split('.')
+                        if split_file.length > 1:
+                            print split_file[2]
 
 
 if __name__ == '__main__':
