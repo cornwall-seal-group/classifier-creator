@@ -17,6 +17,7 @@ def create_classifier_model():
     project = trainer.create_project("Seal ID Classifier")
 
     tags = {}
+    image_list = []
 
     for subdir, dirs, files in os.walk(CLASSIFIER_FOLDER):
 
@@ -27,13 +28,10 @@ def create_classifier_model():
 
             tags[seal_name] = trainer.create_tag(project.id, seal_name)
 
-    for subdir, dirs, files in os.walk(CLASSIFIER_FOLDER):
-
         for file in files:
 
             print("Adding images...")
 
-            image_list = []
             path_name = os.path.join(subdir, file)
             seal_folder_name = subdir.split('/')[2]
             with open(path_name, "rb") as image_contents:
