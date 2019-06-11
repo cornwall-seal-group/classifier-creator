@@ -40,7 +40,7 @@ def process_images_for_classifier():
                             percentage = float('0.' + split_file[1])
                             if percentage > 0.12:
                                 image_path = os.path.join(
-                                    subdir, column)
+                                    subdir, ITERATION, column)
                                 print image_path
 
 
