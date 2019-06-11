@@ -3,6 +3,7 @@ import os
 import csv
 
 ROOT_FOLDER = '../seal-images/'
+CLASSIFIER_FOLDER = '../for-classifier/'
 ACCURACY = 12
 MIN_IMG_WIDTH = 100
 MIN_IMG_HEIGHT = 100
@@ -18,8 +19,9 @@ ITERATION = '208ff343-ec75-4138-813d-84376fedeea2'
 #       {iter-id-2}/
 
 # Get the iteration ID to know which folders to look through
-# Loop through each seal's iteration folder
-# Loop through each image, and pick out the img size and prediction score
+# Loop through the seal folders to find the CSV file for the iteration
+# Loop through each image, and pick out the prediction score > ACCURACY
+# Save the file to a classifier folder
 # Compare the prediction and size against params and save file if OK to separate folder
 # Create a classifier programmatically and send images
 
@@ -30,6 +32,8 @@ def process_images_for_classifier():
         regex = '.*-' + ITERATION + '.csv'
         for file in files:
             if re.search(regex, file):
+                seal_name = subdir.split('/')[1]
+                print seal_name
                 pathName = os.path.join(subdir, file)
                 file = open(pathName, "rU")
                 reader = csv.reader(file, delimiter=',')
@@ -41,7 +45,7 @@ def process_images_for_classifier():
                             if percentage > 0.12:
                                 image_path = os.path.join(
                                     subdir, ITERATION, column)
-                                print image_path
+                                #print image_path
 
 
 if __name__ == '__main__':
