@@ -17,14 +17,17 @@ def create_classifier_model():
     project = trainer.create_project("Seal ID Classifier")
 
     tags = {}
-    # Make tags for seals
+
     for subdir, dirs, files in os.walk(CLASSIFIER_FOLDER):
 
+        # Make tags for seals
         for subdirname in dirs:
             seal_name = subdirname
             print seal_name
 
             tags[seal_name] = trainer.create_tag(project.id, seal_name)
+
+    for subdir, dirs, files in os.walk(CLASSIFIER_FOLDER):
 
         for file in files:
 
