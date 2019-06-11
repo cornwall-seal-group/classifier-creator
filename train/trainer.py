@@ -41,7 +41,7 @@ def create_classifier_model():
                     name=file, contents=image_contents.read(), tag_ids=[tags[seal_folder_name].id]))
 
             # batch the requests
-            if len(image_list) == = 60:
+            if len(image_list) == 60:
                 upload_result = trainer.create_images_from_files(
                     project.id, images=image_list)
                 if not upload_result.is_batch_successful:
