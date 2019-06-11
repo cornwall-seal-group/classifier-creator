@@ -37,7 +37,7 @@ def process_images_for_classifier():
                     for column in row:
                         split_file = column.split('.')
                         if len(split_file) > 2:
-                            percentage = int('0.' + split_file[1])
+                            percentage = float('0.' + split_file[1])
                             if percentage > 0.12:
                                 print column
 
