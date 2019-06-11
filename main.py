@@ -30,14 +30,12 @@ def process_images_for_classifier():
         regex = '.*-' + ITERATION + '.csv'
         for file in files:
             if re.search(regex, file):
-                print os.path.join(subdir, file)
-
-    # for pathName in glob.glob(ROOT_FOLDER + '*/*.csv'):
-    #     file = open(pathName, "rU")
-    #     reader = csv.reader(file, delimiter=',')
-    #     for row in reader:
-    #         for column in row:
-    #             print(column)
+                pathName = os.path.join(subdir, file)
+                file = open(pathName, "rU")
+                reader = csv.reader(file, delimiter=',')
+                for row in reader:
+                    for column in row:
+                        print(column)
 
 
 if __name__ == '__main__':
