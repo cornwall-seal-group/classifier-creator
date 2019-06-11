@@ -30,7 +30,7 @@ ITERATION = '208ff343-ec75-4138-813d-84376fedeea2'
 
 def pick_images_for_classifier():
 
-    for subdir, files in os.walk(ROOT_FOLDER):
+    for subdir, dirs, files in os.walk(ROOT_FOLDER):
         regex = '.*-' + ITERATION + '.csv'
         for file in files:
             if re.search(regex, file):
@@ -55,7 +55,7 @@ def pick_images_for_classifier():
 
 def remove_small_images():
 
-    for subdir, files in os.walk(CLASSIFIER_FOLDER):
+    for subdir, dirs, files in os.walk(CLASSIFIER_FOLDER):
         for file in files:
             pathName = os.path.join(subdir, file)
             im = Image.open(pathName)
