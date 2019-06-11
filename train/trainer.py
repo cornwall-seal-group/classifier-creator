@@ -12,11 +12,11 @@ prediction_resource_id = "<your prediction resource id>"
 
 
 def create_classifier_model():
-    trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
+    ##trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
     # Create a new project
     print ("Creating project...")
-    project = trainer.create_project("Seal ID Classifier")
+    ##project = trainer.create_project("Seal ID Classifier")
 
     tags = {}
     # Make tags for seals
