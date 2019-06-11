@@ -2,6 +2,7 @@ import re
 import os
 import csv
 from shutil import copy2
+from PIL import Image
 
 ROOT_FOLDER = '../seal-images/'
 CLASSIFIER_FOLDER = '../for-classifier/'
@@ -27,9 +28,9 @@ ITERATION = '208ff343-ec75-4138-813d-84376fedeea2'
 # Create a classifier programmatically and send images
 
 
-def process_images_for_classifier():
+def pick_images_for_classifier():
 
-    for subdir, dirs, files in os.walk(ROOT_FOLDER):
+    for subdir, files in os.walk(ROOT_FOLDER):
         regex = '.*-' + ITERATION + '.csv'
         for file in files:
             if re.search(regex, file):
@@ -52,5 +53,23 @@ def process_images_for_classifier():
                                 copy2(image_path, folder)
 
 
+def remove_small_images():
+
+    for subdir, files in os.walk(CLASSIFIER_FOLDER):
+        for file in files:
+            pathName = os.path.join(subdir, file)
+            im = Image.open(pathName)
+            width, height = im.size
+            remove = False
+            if width < MIN_IMG_WIDTH:
+                remove = True
+            if height < MIN_IMG_HEIGHT
+            remove = True
+
+            if remove:
+                os.remove(pathName)
+
+
 if __name__ == '__main__':
-    process_images_for_classifier()
+
+    remove_small_images()
