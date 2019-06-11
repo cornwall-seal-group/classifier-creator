@@ -3,6 +3,8 @@ import os
 import csv
 from shutil import copy2
 from PIL import Image
+from trainer import create_classifier_model
+
 
 ROOT_FOLDER = '../seal-images/'
 CLASSIFIER_FOLDER = '../for-classifier/'
@@ -71,5 +73,4 @@ def remove_small_images():
 
 
 if __name__ == '__main__':
-
-    remove_small_images()
+    create_classifier_model()
