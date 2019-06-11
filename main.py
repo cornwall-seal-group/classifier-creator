@@ -28,8 +28,8 @@ def process_images_for_classifier():
 
     for subdir, dirs, files in os.walk(ROOT_FOLDER):
         regex = '.*-' + ITERATION + '.csv'
-        if re.search(regex, file):
-            for file in files:
+        for file in files:
+            if re.search(regex, file):
                 print os.path.join(subdir, file)
 
     # for pathName in glob.glob(ROOT_FOLDER + '*/*.csv'):
