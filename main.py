@@ -46,9 +46,10 @@ def process_images_for_classifier():
                             if percentage > 0.12:
                                 image_path = os.path.join(
                                     subdir, ITERATION, column)
-                                print image_path
-                                copy2(image_path, CLASSIFIER_FOLDER +
-                                      seal_name + '/')
+                                folder = CLASSIFIER_FOLDER + seal_name + '/'
+                                if not os.path.exists(folder):
+                                    os.makedirs(folder)
+                                copy2(image_path, folder)
 
 
 if __name__ == '__main__':
