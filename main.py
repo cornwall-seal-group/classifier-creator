@@ -63,7 +63,7 @@ def remove_small_images():
             remove = False
             if width < MIN_IMG_WIDTH:
                 remove = True
-            if height < MIN_IMG_HEIGHT
+            if height < MIN_IMG_HEIGHT:
             remove = True
 
             if remove:
