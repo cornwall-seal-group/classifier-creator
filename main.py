@@ -1,9 +1,12 @@
 import re
 import os
 import csv
+import config
 from shutil import copy2
 from PIL import Image
 from train.trainer import create_classifier_model
+
+ITERATION = config.iteration
 
 
 ROOT_FOLDER = '../seal-images/'
@@ -11,7 +14,6 @@ CLASSIFIER_FOLDER = '../for-classifier/'
 ACCURACY = 12
 MIN_IMG_WIDTH = 100
 MIN_IMG_HEIGHT = 100
-ITERATION = '208ff343-ec75-4138-813d-84376fedeea2'
 # seal-images/
 #   LF1/
 #       originals/
