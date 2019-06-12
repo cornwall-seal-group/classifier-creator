@@ -42,13 +42,13 @@ def create_classifier_model():
 
             # batch the requests
             if len(image_list) == 60:
-                send_images(project, image_list)
+                send_images(trainer, project, image_list)
 
                 image_list = []
 
     # send last images not hitting the 60 limit
-    send_images(project, image_list)
+    send_images(trainer, project, image_list)
 
 
-def send_images(project, image_list):
+def send_images(trainer, project, image_list):
     trainer.create_images_from_files(project.id, images=image_list)
