@@ -33,7 +33,7 @@ MIN_IMG_HEIGHT = 100
 
 
 def pick_images_for_classifier():
-
+    print 'pick_images_for_classifier'
     for subdir, dirs, files in os.walk(ROOT_FOLDER):
         regex = '.*-' + ITERATION + '.csv'
         for file in files:
@@ -58,7 +58,7 @@ def pick_images_for_classifier():
 
 
 def remove_small_images():
-
+    print 'remove_small_images'
     for subdir, dirs, files in os.walk(CLASSIFIER_FOLDER):
         for file in files:
             pathName = os.path.join(subdir, file)
