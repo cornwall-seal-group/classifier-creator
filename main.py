@@ -6,7 +6,7 @@ from shutil import copy2
 from PIL import Image
 from train.trainer import create_classifier_model
 
-ITERATION = config.iteration
+ITERATION = config.ITERATION
 
 
 ROOT_FOLDER = '../seal-images/'
