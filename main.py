@@ -106,7 +106,7 @@ def pick_out_test_images():
                             #shutil.move(image_path, test_seal_image_folder)
                             print 'Going to move'
                             print (image_path, test_seal_image_folder)
-                            num++
+                            num += 1
                         else:
                             break
 
