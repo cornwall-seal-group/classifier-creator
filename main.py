@@ -1,6 +1,7 @@
 import re
 import os
 import csv
+import math
 import config
 from shutil import copy2
 from PIL import Image
@@ -80,7 +81,7 @@ def pick_out_test_images():
     for subdir, dirs, files in os.walk(CLASSIFIER_FOLDER):
 
         for subdirname in dirs:
-            subdir_path = os.path.join(subdir, file)
+            subdir_path = os.path.join(subdir, subdirname)
 
             number_of_files = len([name for name in os.listdir(
                 subdir_path) if os.path.isfile(os.path.join(subdir_path, name))])
@@ -88,6 +89,26 @@ def pick_out_test_images():
             print subdirname
             print subdir_path
             print number_of_files
+
+            test_images = math.ceil(number_of_files*0.1) + 1
+
+            if test_images > 1:
+
+                test_seal_image_folder = TEST_IMAGE_FOLDER + subdirname
+                if not os.path.exists(test_seal_image_folder):
+                    os.makedirs(test_seal_image_folder)
+
+                for subdir_images, dirs_images, files_images in os.walk(subdir_path):
+                    num = 0
+                    for file in files_images:
+                        if num < test_images:
+                            image_path = os.path.join(subdir_images, file)
+                            #shutil.move(image_path, test_seal_image_folder)
+                            print 'Going to move'
+                            print (image_path, test_seal_image_folder)
+                            num++
+                        else:
+                            break
 
 
 if __name__ == '__main__':
