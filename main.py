@@ -10,7 +10,8 @@ ITERATION = config.ITERATION
 
 
 ROOT_FOLDER = '../seal-images/'
-CLASSIFIER_FOLDER = '../for-classifier/'
+CLASSIFIER_FOLDER = '../for-classifier/' + ITERATION + '/'
+TEST_IMAGE_FOLDER = '../classifier-test-images/' + ITERATION + '/'
 ACCURACY = 12
 MIN_IMG_WIDTH = 100
 MIN_IMG_HEIGHT = 100
@@ -74,7 +75,23 @@ def remove_small_images():
                 os.remove(pathName)
 
 
+def pick_out_test_images():
+    print 'pick_out_test_images'
+    for subdir, dirs, files in os.walk(CLASSIFIER_FOLDER):
+
+        for subdirname in dirs:
+            subdir_path = os.path.join(subdir, file)
+
+            number_of_files = len([name for name in os.listdir(
+                subdir_path) if os.path.isfile(os.path.join(subdir_path, name))])
+
+            print subdirname
+            print subdir_path
+            print number_of_files
+
+
 if __name__ == '__main__':
-    pick_images_for_classifier()
-    remove_small_images()
-    create_classifier_model()
+    # pick_images_for_classifier()
+    # remove_small_images()
+    # create_classifier_model()
+    pick_out_test_images()

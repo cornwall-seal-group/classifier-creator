@@ -5,6 +5,7 @@ import config
 
 ENDPOINT = config.ENDPOINT
 TRAINING_KEY = config.TRAINING_KEY
+ITERATION = config.ITERATION
 
 CLASSIFIER_FOLDER = '../for-classifier/'
 
@@ -13,8 +14,9 @@ def create_classifier_model():
     trainer = CustomVisionTrainingClient(TRAINING_KEY, endpoint=ENDPOINT)
 
     # Create a new project
-    print ("Creating project...")
-    project = trainer.create_project("Seal ID Classifier")
+    project_name = "Seal ID Classifier-" + ITERATION
+    print ("Creating project... " + project_name)
+    project = trainer.create_project(project_name)
 
     tags = {}
     image_list = []
