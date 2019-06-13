@@ -114,7 +114,7 @@ def pick_out_test_images():
 
 
 if __name__ == '__main__':
-    pick_images_for_classifier()
-    remove_small_images()
-    pick_out_test_images()
+    # pick_images_for_classifier()
+    # remove_small_images()
+    # pick_out_test_images()
     create_classifier_model()

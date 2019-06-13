@@ -36,7 +36,7 @@ def create_classifier_model():
             print("Adding images...")
 
             path_name = os.path.join(subdir, file)
-            seal_folder_name = subdir.split('/')[2]
+            seal_folder_name = subdir.split('/')[3]
             with open(path_name, "rb") as image_contents:
                 print path_name
                 print seal_folder_name
