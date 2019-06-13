@@ -6,6 +6,7 @@ import config
 ENDPOINT = config.ENDPOINT
 TRAINING_KEY = config.TRAINING_KEY
 ITERATION = config.ITERATION
+ACCURACY = config.ACCURACY
 
 CLASSIFIER_FOLDER = '../for-classifier/'
 
@@ -14,7 +15,7 @@ def create_classifier_model():
     trainer = CustomVisionTrainingClient(TRAINING_KEY, endpoint=ENDPOINT)
 
     # Create a new project
-    project_name = "Seal ID Classifier-" + ITERATION
+    project_name = "Seal ID Classifier-" + ITERATION + '-' + str(ACCURACY)
     print ("Creating project... " + project_name)
     project = trainer.create_project(project_name)
 

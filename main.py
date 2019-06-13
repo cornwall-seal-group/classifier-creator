@@ -8,14 +8,15 @@ from PIL import Image
 from train.trainer import create_classifier_model
 
 ITERATION = config.ITERATION
-
+ACCURACY = config.ACCURACY
+MIN_IMG_WIDTH = config.MIN_IMG_WIDTH
+MIN_IMG_HEIGHT = config.MIN_IMG_HEIGHT
 
 ROOT_FOLDER = '../seal-images/'
 CLASSIFIER_FOLDER = '../for-classifier/' + ITERATION + '/'
 TEST_IMAGE_FOLDER = '../classifier-test-images/' + ITERATION + '/'
-ACCURACY = 12
-MIN_IMG_WIDTH = 100
-MIN_IMG_HEIGHT = 100
+
+
 # seal-images/
 #   LF1/
 #       originals/
