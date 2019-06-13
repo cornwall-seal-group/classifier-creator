@@ -8,10 +8,8 @@ TRAINING_KEY = config.TRAINING_KEY
 ITERATION = config.ITERATION
 ACCURACY = config.ACCURACY
 
-CLASSIFIER_FOLDER = '../for-classifier/'
 
-
-def create_classifier_model():
+def create_classifier_model(classifier_folder):
     trainer = CustomVisionTrainingClient(TRAINING_KEY, endpoint=ENDPOINT)
 
     # Create a new project
@@ -22,7 +20,7 @@ def create_classifier_model():
     tags = {}
     image_list = []
 
-    for subdir, dirs, files in os.walk(CLASSIFIER_FOLDER):
+    for subdir, dirs, files in os.walk(classifier_folder):
 
         # Make tags for seals
         for subdirname in dirs:
