@@ -91,6 +91,7 @@ def pick_out_test_images():
             print number_of_files
 
             test_images = math.ceil(number_of_files*0.1) + 1
+            print test_images
 
             if test_images > 1:
 
