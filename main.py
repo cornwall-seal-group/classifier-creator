@@ -3,7 +3,7 @@ import os
 import csv
 import math
 import config
-from shutil import copy2
+from shutil import copy2, move
 from PIL import Image
 from train.trainer import create_classifier_model
 
@@ -104,9 +104,9 @@ def pick_out_test_images():
                     for file in files_images:
                         if num < test_images:
                             image_path = os.path.join(subdir_images, file)
-                            #shutil.move(image_path, test_seal_image_folder)
                             print 'Going to move'
                             print (image_path, test_seal_image_folder)
+                            move(image_path, test_seal_image_folder)
                             num += 1
                         else:
                             break
