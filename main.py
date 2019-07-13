@@ -51,7 +51,7 @@ def pick_images_for_classifier():
                         split_file = column.split('.')
                         if len(split_file) > 2:
                             percentage = float('0.' + split_file[1])
-                            if percentage > 0.12:
+                            if percentage > ACCURACY:
                                 image_path = os.path.join(
                                     subdir, ITERATION, column)
                                 folder = CLASSIFIER_FOLDER + seal_name + '/'
