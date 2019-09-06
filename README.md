@@ -1,6 +1,8 @@
 # classifier-creator
 
-This project takes the manipulated images from the object detection model, collates the images and sends them to a new classifier to train for individual seal identification.
+This project takes the manipulated images from the pattern detection model, collates the images and sends them to a new classifier to train for individual seal identification.
+
+The idea of this project is to automate creating a classifier based on cropped images of patterns of seals.
 
 To kick off, it requires the following criteria:
 
